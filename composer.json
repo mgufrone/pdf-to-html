@@ -1,0 +1,21 @@
+{
+    "name": "gufron/pdftohtml-php",
+    "description": "PDF to HTML converter with PHP using Poppler-utils",
+    "license": "GPLv3",
+    "authors": [
+        {
+            "name": "Mochamad Gufron",
+            "email": "mgufronefendi@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+
+    },
+
+    "autoload": {
+        "psr-0": {
+            "Gufy": "src"
+        }
+    }
+}
