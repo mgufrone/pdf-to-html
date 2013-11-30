@@ -7,4 +7,4 @@ before_script:
  - sudo apt-get install poppler-utils
  - composer install -vvv
 script: 
- - phpunit tests/CalculatorTest.php
+ - phpunit tests/PdfToHtmlTest.php
