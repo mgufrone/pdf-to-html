@@ -10,6 +10,7 @@ This class brought to you so you can use php and poppler-utils convert your pdf 
 ## Usage
 
 Here is the sample.
+
 	<?php
 	// if you are using composer, just use this
 	include 'vendor/autoload.php';
