@@ -2,6 +2,10 @@
 
 This class brought to you so you can use php and poppler-utils convert your pdf files to html file
 
+## Installation
+
+
+
 ## Requirements
 1. Poppler-Utils (if you are using Ubuntu Distro, just install it from apt )
 	`sudo apt-get install poppler-utils`
@@ -18,7 +22,7 @@ Here is the sample.
 	// if not, use this
 	include 'src/Gufy/PdfToHtml.php';
 
-	// initiate 
+	// initiate
 	$pdf = new \Gufy\PdfToHtml;
 
 	// opening file
@@ -38,4 +42,3 @@ Here is the sample.
 
 Of course i need feedback to improve this library. Just send an issue, or contribute by pull a request to this repository.
  Thanks
-
