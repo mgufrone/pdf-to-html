@@ -1,5 +1,5 @@
 <?php
-namespace Gufy;
+namespace Gufy\PdfToHtml;
 /**
 * Class who can handle about converting pdf file to Html files
 * Please reserve an unprotected pdf files or uncopyrighted pdf files
@@ -9,7 +9,7 @@ namespace Gufy;
 *
 */
 
-class PdfToHtml
+class Base
 {
 	private $options=array(
 		'singlePage'=>false,
@@ -17,7 +17,7 @@ class PdfToHtml
 		'ignoreImages'=>false,
 		'zoom'=>1.5,
 	);
-	private $outputDir;
+	public $outputDir;
 	private $bin="/usr/bin/pdftohtml";
 	private $file;
 	/**
@@ -77,7 +77,7 @@ class PdfToHtml
 	public function generateOptions()
 	{
 		$generated = array();
-		array_walk($this->options, function($value, $key) use($generated){
+		array_walk($this->options, function($value, $key) use(&$generated){
 			$result = "";
 			switch($key)
 			{
@@ -92,6 +92,9 @@ class PdfToHtml
 				break;
 				case "ignoreImages":
 				$result = $value?"-i":"";
+				break;
+				case 'noFrames':
+				$result = $value?'-noframes':'';
 				break;
 			}
 			$generated[] = $result;

@@ -1,6 +1,6 @@
 <?php
 
-use Gufy\PdfToHtml;
+use Gufy\PdfToHtml\Base as PdfToHtml;
 
 class PdfToHtmlTest extends \PHPUnit_Framework_TestCase
 {
@@ -22,7 +22,7 @@ class PdfToHtmlTest extends \PHPUnit_Framework_TestCase
 		$this->assertTrue(file_exists($file));
 		$this->bin->open($file);
 		$this->bin->setOutputDirectory(__DIR__.'/results');
-		
+
 		$this->bin->generate();
 		$this->assertTrue(count(scandir(__DIR__.'/results'))>=3);
 
@@ -34,7 +34,7 @@ class PdfToHtmlTest extends \PHPUnit_Framework_TestCase
 		$this->assertTrue(file_exists($file));
 		$this->bin->open($file);
 		$this->bin->setOutputDirectory(__DIR__.'/results');
-		
+
 		$this->bin->setOptions("singlePage",true);
 		$this->bin->generate();
 		$this->assertTrue(count(scandir(__DIR__.'/results'))>=3);

@@ -18,7 +18,7 @@
             "Gufy": "src"
         },
         "psr-4": {
-            "Gufy\\PdfToHtml\\Parser\\": "src/"
+            "Gufy\\PdfToHtml\\": "src/"
         }
     }
 }
