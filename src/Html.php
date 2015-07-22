@@ -14,7 +14,7 @@ class Html extends Dom
   {
     $info = new Pdf($pdf_file);
     $pdf = new Base($pdf_file, array(
-      'singlePage'=>true,
+      'singlePage'=>false,
     ));
     $pages = $info->getPages();
     $random_dir = uniqid();

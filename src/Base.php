@@ -16,6 +16,7 @@ class Base
 		'imageJpeg'=>false,
 		'ignoreImages'=>false,
 		'zoom'=>1.5,
+		'noFrames'=>true,
 	);
 	public $outputDir;
 	private $bin="/usr/bin/pdftohtml";
