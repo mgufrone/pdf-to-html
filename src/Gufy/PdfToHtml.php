@@ -1,5 +1,5 @@
 <?php
-
+namespace Gufy;
 /**
 * Class who can handle about converting pdf file to Html files
 * Please reserve an unprotected pdf files or uncopyrighted pdf files
@@ -8,7 +8,6 @@
 * @since v1.0
 *
 */
-namespace Gufy;
 
 class PdfToHtml
 {
@@ -33,7 +32,7 @@ class PdfToHtml
 			return $this;
 		$pdf = $this;
 		if(!empty($options))
-		array_walk($options, function($value) use($pdf){
+		array_walk($options, function($value, $key) use($pdf){
 			$pdf->setOptions($key, $value);
 		});
 		return $this->open($pdfFile);
@@ -49,8 +48,17 @@ class PdfToHtml
 		$this->setOutputDirectory(dirname($pdfFile));
 		return $this;
 	}
+
+	public function html()
+	{
+		$this->generate();
+		$file_output = $this->outputDir."/".preg_replace("/\.pdf$/","",basename($this->file)).".html";
+		$content = file_get_contents($file_output);
+		unlink($file_output);
+		return $content;
+	}
 	/**
-	* generating html files using pdftohtml software. 
+	* generating html files using pdftohtml software.
 	* @return $this current object
 	*/
 	public function generate()
@@ -61,7 +69,7 @@ class PdfToHtml
 		$result = exec($command);
 		return $this;
 	}
-	
+
 	/**
 	* generate options based on the preserved options
 	* @return string options that will be passed on running the command
@@ -92,7 +100,7 @@ class PdfToHtml
 	}
 
 	/**
-	* change value of preserved configuration 
+	* change value of preserved configuration
 	* @param string $key key of option you want to change
 	* @param mixed $value value of option you want to change
 	* @return $this current object

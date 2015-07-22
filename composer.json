@@ -10,12 +10,15 @@
     ],
     "minimum-stability": "dev",
     "require": {
-
+        "paquettg/php-html-parser": "~1"
     },
 
     "autoload": {
         "psr-0": {
             "Gufy": "src"
+        },
+        "psr-4": {
+            "Gufy\\PdfToHtml\\Parser\\": "src/"
         }
     }
 }
