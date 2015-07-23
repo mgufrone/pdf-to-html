@@ -6,7 +6,5 @@ php:
 before_script:
  - sudo apt-get install poppler-utils
  - composer install -vvv
- - wget http://collabracam.com/resources/CollabraCam_UserGuide.pdf
- - mv CollabraCam_UserGuide.pdf tests/source/test.pdf
-script: 
- - phpunit tests/PdfToHtmlTest.php
+script:
+ - phpunit
