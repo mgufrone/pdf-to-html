@@ -18,7 +18,7 @@ Or add this package to your `composer.json`
 
 ```json
 {
-	"gufron/pdftohtml-php":"~2"
+	"gufy/pdftohtml-php":"~2"
 }
 ```
 
