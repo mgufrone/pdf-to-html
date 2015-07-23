@@ -27,8 +27,8 @@ class PdfInfoTest extends PHPUnit_Framework_TestCase
     // echo count($html->find('body'));
     // print_r($html);
     $this->assertEquals(1, $html->getCurrentPage());
-    $html->goToPage(3);
-    $this->assertEquals(3, $html->getCurrentPage());
+    $html->goToPage(1);
+    $this->assertEquals(1, $html->getCurrentPage());
     $this->assertArrayHasKey('pages', $pdf->getInfo());
   }
 }
