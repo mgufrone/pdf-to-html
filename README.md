@@ -4,7 +4,7 @@ This class brought to you so you can use php and poppler-utils convert your pdf 
 
 ## Important Notes
 
-Please see how to use below, since it's really upgraded and things in this package has already refined and almost new.
+Please see how to use below, since it's really upgraded and things in this package has already changed.
 
 ## Installation
 
@@ -32,25 +32,25 @@ Or add this package to your `composer.json`
 Here is the sample.
 
 ```php
-	<?php
-	// if you are using composer, just use this
-	include 'vendor/autoload.php';
+<?php
+// if you are using composer, just use this
+include 'vendor/autoload.php';
 
-	// initiate
-	$pdf = new Gufy\PdfToHtml\Pdf('file.pdf');
+// initiate
+$pdf = new Gufy\PdfToHtml\Pdf('file.pdf');
 
-	// convert to html and return it as [Dom Object](https://github.com/paquettg/php-html-parser)
-	$html = $pdf->html();
+// convert to html and return it as [Dom Object](https://github.com/paquettg/php-html-parser)
+$html = $pdf->html();
 
-	// check if your pdf has more than one pages
-	$total_pages = $pdf->getTotalPages();
+// check if your pdf has more than one pages
+$total_pages = $pdf->getTotalPages();
 
-	// Your pdf happen to have more than one pages and you want to go another page? Got it. use this command to change the current page to page 3
-	$html->goToPage(3);
+// Your pdf happen to have more than one pages and you want to go another page? Got it. use this command to change the current page to page 3
+$html->goToPage(3);
 
-	// and then you can do as you please with that dom, you can find any element you want
-	$paragraphs = $html->find('body > p');
-	?>
+// and then you can do as you please with that dom, you can find any element you want
+$paragraphs = $html->find('body > p');
+?>
 ```
 
 ## Feedback & Contribute
