@@ -11,7 +11,7 @@ Please see how to use below, since it's really upgraded and things in this packa
 When you are in your active directory apps, you can just run this command to add this package on your app
 
 ```
-	composer require gufron/pdftohtml-php:~2
+	composer require gufy/pdftohtml-php:~2
 ```
 
 Or add this package to your `composer.json`
