@@ -54,6 +54,12 @@ $html->goToPage(3);
 
 // and then you can do as you please with that dom, you can find any element you want
 $paragraphs = $html->find('body > p');
+
+// change pdftohtml bin location
+\Gufy\PdfToHtml\Config::set('pdftohtml.bin', '/usr/local/bin/pdftohtml');
+
+// change pdfinfo bin location
+\Gufy\PdfToHtml\Config::set('pdfinfo.bin', '/usr/local/bin/pdfinfo');
 ?>
 ```
 
