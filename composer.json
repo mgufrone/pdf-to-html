@@ -8,9 +8,10 @@
             "email": "mgufronefendi@gmail.com"
         }
     ],
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "require": {
-        "paquettg/php-html-parser": "~1"
+        "paquettg/php-html-parser": "~1",
+        "illuminate/config": "~5"
     },
 
     "autoload": {

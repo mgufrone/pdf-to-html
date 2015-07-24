@@ -66,7 +66,7 @@ class Base
 	{
 		$output = $this->outputDir."/".preg_replace("/\.pdf$/","",basename($this->file)).".html";
 		$options = $this->generateOptions();
-		$command = $this->bin." ".$options." ".$this->file." ".$output;
+		$command = $this->bin()." ".$options." ".$this->file." ".$output;
 		$result = exec($command);
 		return $this;
 	}
@@ -146,5 +146,10 @@ class Base
 			}
 		}
 		return $this;
+	}
+
+	public function bin()
+	{
+		return Config::get('pdftohtml.bin', '/usr/bin/pdftohtml');
 	}
 }

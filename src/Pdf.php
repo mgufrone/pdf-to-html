@@ -3,7 +3,7 @@
 class Pdf
 {
   protected $file, $info;
-  protected $info_bin = '/usr/bin/pdfinfo';
+  // protected $info_bin = '/usr/bin/pdfinfo';
   public function __construct($file, $options=array())
   {
     $this->file = $file;
@@ -21,7 +21,8 @@ class Pdf
   protected function info()
   {
     // echo $this->info_bin.' '.$this->file;
-    $content = shell_exec($this->info_bin.' '.$this->file);
+    $content = shell_exec($this->bin().' '.$this->file);
+    // print_r($info);
     $options = explode("\n", $content);
     $info = array();
     foreach($options as &$item)
@@ -44,5 +45,9 @@ class Pdf
   public function getPages()
   {
     return $this->info['pages'];
+  }
+  public function bin()
+  {
+    return Config::get('pdfinfo.bin', '/usr/bin/pdfinfo');
   }
 }

@@ -3,7 +3,7 @@
 use PHPHtmlParser\Dom;
 class Html extends Dom
 {
-  protected $contents, $total_pages, $current_page;
+  protected $contents, $total_pages, $current_page, $pdf_file, $locked = false;
   public function __construct($pdf_file)
   {
     $this->getContents($pdf_file);
@@ -11,6 +11,7 @@ class Html extends Dom
   }
   private function getContents($pdf_file)
   {
+    $this->locked = true;
     // echo $file;
     $info = new Pdf($pdf_file);
     $pdf = new Base($pdf_file, array(
@@ -27,6 +28,7 @@ class Html extends Dom
     $pdf->generate();
     $fileinfo = pathinfo($pdf_file);
     $base_path = $pdf->outputDir.'/'.$fileinfo['filename'];
+    $contents = array();
     for($i=1;$i<=$pages;$i++)
     $contents[$i] = file_get_contents($base_path.'-'.$i.'.html');
     $this->contents = $contents;

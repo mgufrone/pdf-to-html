@@ -1,3 +1,7 @@
+[![Build Status](https://travis-ci.org/mgufrone/pdf-to-html.svg?branch=master)](https://travis-ci.org/mgufrone/pdf-to-html)
+
+
+
 # PDF to HTML PHP Class
 
 This class brought to you so you can use php and poppler-utils convert your pdf files to html file
