@@ -21,7 +21,7 @@ class Html extends Dom
     $pages = $info->getPages();
     // print_r($pages);
     $random_dir = uniqid();
-    $outputDir = dirname(__FILE__).'/../output/'.$random_dir;
+    $outputDir = Config::get('pdftohtml.output', dirname(__FILE__).'/../output/'.$random_dir);
     if(!file_exists($outputDir))
     mkdir($outputDir, 0777, true);
     $pdf->setOutputDirectory($outputDir);
