@@ -99,7 +99,7 @@ $paragraphs = $html->find('body > p');
 
 ## Usage note for OS/X Users
 
-Thanks to @kaleidoscopique
+Thanks to @kaleidoscopique for giving a try and make it run on OS/X for this package
 
 **1. Install brew**
 Brew is a famous package manager on OS/X : http://brew.sh/ (aptitude style).
