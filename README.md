@@ -47,7 +47,7 @@ $pdf = new Gufy\PdfToHtml\Pdf('file.pdf');
 $html = $pdf->html();
 
 // check if your pdf has more than one pages
-$total_pages = $pdf->getTotalPages();
+$total_pages = $pdf->getPages();
 
 // Your pdf happen to have more than one pages and you want to go another page? Got it. use this command to change the current page to page 3
 $html->goToPage(3);
@@ -86,7 +86,7 @@ $pdf = new Gufy\PdfToHtml\Pdf('file.pdf');
 $html = $pdf->html();
 
 // check if your pdf has more than one pages
-$total_pages = $pdf->getTotalPages();
+$total_pages = $pdf->getPages();
 
 // Your pdf happen to have more than one pages and you want to go another page? Got it. use this command to change the current page to page 3
 $html->goToPage(3);
