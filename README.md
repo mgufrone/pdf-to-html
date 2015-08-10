@@ -63,6 +63,40 @@ $paragraphs = $html->find('body > p');
 ?>
 ```
 
+## Usage note for Windows Users
+For those who need this package in windows, there is a way. First download poppler-utils for windows here <http://blog.alivate.com.au/poppler-windows/>. And download the latest binary.
+
+After download it, extract it. There will be a directory called `bin`. We will need this one. Then change your code like this
+
+
+```php
+<?php
+// if you are using composer, just use this
+include 'vendor/autoload.php';
+use Gufy\PdfToHtml\Config;
+// change pdftohtml bin location
+Config::set('pdftohtml.bin', '/path/to/poppler/bin/pdftohtml.exe');
+
+// change pdfinfo bin location
+Config::set('pdfinfo.bin', '/path/to/poppler/bin/pdfinfo.exe');
+// initiate
+$pdf = new Gufy\PdfToHtml\Pdf('file.pdf');
+
+// convert to html and return it as [Dom Object](https://github.com/paquettg/php-html-parser)
+$html = $pdf->html();
+
+// check if your pdf has more than one pages
+$total_pages = $pdf->getTotalPages();
+
+// Your pdf happen to have more than one pages and you want to go another page? Got it. use this command to change the current page to page 3
+$html->goToPage(3);
+
+// and then you can do as you please with that dom, you can find any element you want
+$paragraphs = $html->find('body > p');
+
+?>
+```
+
 ## Feedback & Contribute
 
 Send me an issue for improvement or any buggy thing. I love to help and solve another people problems. Thanks :+1:
