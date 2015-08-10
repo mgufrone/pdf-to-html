@@ -97,6 +97,48 @@ $paragraphs = $html->find('body > p');
 ?>
 ```
 
+## Usage note for OS/X Users
+
+Thanks to @kaleidoscopique
+
+**1. Install brew**
+Brew is a famous package manager on OS/X : http://brew.sh/ (aptitude style).
+
+**2. Install poppler**
+```bash
+brew install poppler
+```
+
+**3. Verify the path of pdfinfo and pdftohtml**
+```bash
+$ which pdfinfo
+/usr/local/bin/pdfinfo
+
+$ which pdftohtml
+/usr/local/bin/pdfinfo
+```
+
+**4. Whatever the paths are, use ```Gufy\PdfToHtml\Config::set``` to set them in your php code**. Obviously, use the same path as the one given by the ```which``` command;
+
+```php
+<?php
+// if you are using composer, just use this
+include 'vendor/autoload.php';
+
+// change pdftohtml bin location
+\Gufy\PdfToHtml\Config::set('pdftohtml.bin', '/usr/local/bin/pdftohtml');
+
+// change pdfinfo bin location
+\Gufy\PdfToHtml\Config::set('pdfinfo.bin', '/usr/local/bin/pdfinfo');
+
+// initiate
+$pdf = new Gufy\PdfToHtml\Pdf('file.pdf');
+
+// convert to html and return it as [Dom Object](https://github.com/paquettg/php-html-parser)
+$html = $pdf->html();
+?>
+```
+
 ## Feedback & Contribute
 
 Send me an issue for improvement or any buggy thing. I love to help and solve another people problems. Thanks :+1:
