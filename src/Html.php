@@ -33,10 +33,14 @@ class Html extends Dom
     $contents = array();
     for($i=1;$i<=$pages;$i++)
     {
-      $content = str_replace(array('<!--','-->'),'',file_get_contents($base_path.'-'.$i.'.html'));
-      $parser = new Emogrifier($content);
-      // print_r($parser);
-      $content = $parser->emogrify();
+      $content = file_get_contents($base_path.'-'.$i.'.html');
+      if($this->inlineCss())
+      {
+        $content = str_replace(array('<!--','-->'),'',$content);
+        $parser = new Emogrifier($content);
+        // print_r($parser);
+        $content = $parser->emogrify();
+      }
       file_put_contents($base_path.'-'.$i.'.html', $content);
       $contents[$i] = file_get_contents($base_path.'-'.$i.'.html');
     }
@@ -57,5 +61,9 @@ class Html extends Dom
   public function getCurrentPage()
   {
     return $this->current_page;
+  }
+  public function inlineCss()
+  {
+    return Config::get('pdftohtml.inlineCss', true);
   }
 }
