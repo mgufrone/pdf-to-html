@@ -11,7 +11,8 @@
     "minimum-stability": "stable",
     "require": {
         "paquettg/php-html-parser": "~1",
-        "illuminate/config": "~5"
+        "illuminate/config": "~5",
+        "pelago/emogrifier": "@dev"
     },
 
     "autoload": {

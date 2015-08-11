@@ -11,11 +11,12 @@ class Pdf
     array_walk($options, function($item, $key) use($class){
       $class->$key = $item;
     });
-    $this->info($file);
     return $this;
   }
   public function getInfo()
   {
+    if($this->info == null)
+    $this->info($this->file);
     return $this->info;
   }
   protected function info()
@@ -39,10 +40,14 @@ class Pdf
   }
   public function html()
   {
+    if($this->info == null)
+    $this->info($this->file);
     return new Html($this->file);
   }
   public function getPages()
   {
+    if($this->info == null)
+    $this->info($this->file);
     return $this->info['pages'];
   }
   public function bin()

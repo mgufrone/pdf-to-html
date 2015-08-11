@@ -1,6 +1,7 @@
 <?php namespace Gufy\PdfToHtml;
-// use Gufy\PdfToHtml\B;
+
 use PHPHtmlParser\Dom;
+use Pelago\Emogrifier;
 class Html extends Dom
 {
   protected $contents, $total_pages, $current_page, $pdf_file, $locked = false;
@@ -20,6 +21,7 @@ class Html extends Dom
     ));
     $pages = $info->getPages();
     // print_r($pages);
+    // print_r($pages);
     $random_dir = uniqid();
     $outputDir = Config::get('pdftohtml.output', dirname(__FILE__).'/../output/'.$random_dir);
     if(!file_exists($outputDir))
@@ -30,7 +32,14 @@ class Html extends Dom
     $base_path = $pdf->outputDir.'/'.$fileinfo['filename'];
     $contents = array();
     for($i=1;$i<=$pages;$i++)
-    $contents[$i] = file_get_contents($base_path.'-'.$i.'.html');
+    {
+      $content = str_replace(array('<!--','-->'),'',file_get_contents($base_path.'-'.$i.'.html'));
+      $parser = new Emogrifier($content);
+      // print_r($parser);
+      $content = $parser->emogrify();
+      file_put_contents($base_path.'-'.$i.'.html', $content);
+      $contents[$i] = file_get_contents($base_path.'-'.$i.'.html');
+    }
     $this->contents = $contents;
     $this->goToPage(1);
   }
