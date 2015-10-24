@@ -36,7 +36,7 @@ class Html extends Dom
       $content = file_get_contents($base_path.'-'.$i.'.html');
       if($this->inlineCss())
       {
-        $content = str_replace(array('<!--','-->'),'',$content);
+        // $content = str_replace(array('<!--','-->'),'',$content);
         $parser = new Emogrifier($content);
         // print_r($parser);
         $content = $parser->emogrify();

@@ -75,10 +75,10 @@ After download it, extract it. There will be a directory called `bin`. We will n
 include 'vendor/autoload.php';
 use Gufy\PdfToHtml\Config;
 // change pdftohtml bin location
-Config::set('pdftohtml.bin', '/path/to/poppler/bin/pdftohtml.exe');
+Config::set('pdftohtml.bin', 'C:/poppler-0.37/bin/pdftohtml.exe');
 
 // change pdfinfo bin location
-Config::set('pdfinfo.bin', '/path/to/poppler/bin/pdfinfo.exe');
+Config::set('pdfinfo.bin', 'C:/poppler-0.37/bin/pdfinfo.exe');
 // initiate
 $pdf = new Gufy\PdfToHtml\Pdf('file.pdf');
 
