@@ -4,6 +4,7 @@ use PHPHtmlParser\Dom;
 use Pelago\Emogrifier;
 use DOMDocument;
 use DOMXPath;
+use DOMNode;
 class Html extends Dom
 {
   protected $contents, $total_pages, $current_page, $pdf_file, $locked = false;
@@ -47,7 +48,7 @@ class Html extends Dom
         }
 
         $body = $xpath->query('//body')->item(0);
-        $content = $body instanceof DOMNode ? $dom->saveXml($body) : 'something failed';
+        $content = $body instanceof DOMNode ? $dom->saveHTML($body) : 'something failed';
         // $content = str_replace(array('<!--','-->'),'',$content);
         // $parser = new Emogrifier($content);
         // print_r($parser);
