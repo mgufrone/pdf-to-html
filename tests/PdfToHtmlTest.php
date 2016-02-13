@@ -18,7 +18,7 @@ class PdfToHtmlTest extends \PHPUnit_Framework_TestCase
 	public function testOpenAndGenerate()
 	{
 
-		$file = __DIR__.'/source/test2.pdf';
+		$file = __DIR__.'/source/test.pdf';
 		$this->assertTrue(file_exists($file));
 		$this->bin->open($file);
 		$this->bin->setOutputDirectory(__DIR__.'/results');

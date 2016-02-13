@@ -137,7 +137,7 @@ class Base
 		{
 			$path = (string)$file;
 			$basename = basename($path);
-			if($basename != '..')
+			if($basename != '..' && $basename != ".gitignore")
 			{
 				if(is_file($path) && file_exists($path))
 					unlink($path);
