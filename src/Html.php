@@ -2,6 +2,8 @@
 
 use PHPHtmlParser\Dom;
 use Pelago\Emogrifier;
+use DOMDocument;
+use DOMXPath;
 class Html extends Dom
 {
   protected $contents, $total_pages, $current_page, $pdf_file, $locked = false;
@@ -34,12 +36,22 @@ class Html extends Dom
     for($i=1;$i<=$pages;$i++)
     {
       $content = file_get_contents($base_path.'-'.$i.'.html');
+      $content = str_replace("Â","",$content);
       if($this->inlineCss())
       {
+        $dom = new DOMDocument();
+        $dom->loadHTML($content);
+        $xpath = new DOMXPath($dom);
+        foreach ($xpath->query('//comment()') as $comment) {
+            $comment->parentNode->removeChild($comment);
+        }
+
+        $body = $xpath->query('//body')->item(0);
+        $content = $body instanceof DOMNode ? $dom->saveXml($body) : 'something failed';
         // $content = str_replace(array('<!--','-->'),'',$content);
-        $parser = new Emogrifier($content);
+        // $parser = new Emogrifier($content);
         // print_r($parser);
-        $content = $parser->emogrify();
+        // $content = $parser->emogrify();
       }
       file_put_contents($base_path.'-'.$i.'.html', $content);
       $contents[$i] = file_get_contents($base_path.'-'.$i.'.html');
