@@ -16,15 +16,13 @@ class Html extends Dom
   private function getContents($pdf_file)
   {
     $this->locked = true;
-    // echo $file;
     $info = new Pdf($pdf_file);
     $pdf = new Base($pdf_file, array(
       'singlePage'=>true,
       'noFrames'=>false,
     ));
     $pages = $info->getPages();
-    // print_r($pages);
-    // print_r($pages);
+
     $random_dir = uniqid();
     $outputDir = Config::get('pdftohtml.output', dirname(__FILE__).'/../output/'.$random_dir);
     if(!file_exists($outputDir))
@@ -46,13 +44,8 @@ class Html extends Dom
         foreach ($xpath->query('//comment()') as $comment) {
             $comment->parentNode->removeChild($comment);
         }
-
         $body = $xpath->query('//body')->item(0);
         $content = $body instanceof DOMNode ? $dom->saveHTML($body) : 'something failed';
-        // $content = str_replace(array('<!--','-->'),'',$content);
-        // $parser = new Emogrifier($content);
-        // print_r($parser);
-        // $content = $parser->emogrify();
       }
       file_put_contents($base_path.'-'.$i.'.html', $content);
       $contents[$i] = file_get_contents($base_path.'-'.$i.'.html');

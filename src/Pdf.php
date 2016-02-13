@@ -3,7 +3,6 @@
 class Pdf
 {
   protected $file, $info;
-  // protected $info_bin = '/usr/bin/pdfinfo';
   public function __construct($file, $options=array())
   {
     $this->file = $file;
@@ -33,10 +32,8 @@ class Pdf
         $info[str_replace(array(" "),array("_"),strtolower($key))] = trim($value);
       }
     }
-    // print_r($info);
     $this->info = $info;
     return $this;
-    // return $content;
   }
   public function html()
   {
