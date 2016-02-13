@@ -49,15 +49,7 @@ class Base
 		$this->setOutputDirectory(dirname($pdfFile));
 		return $this;
 	}
-
-	public function html()
-	{
-		$this->generate();
-		$file_output = $this->outputDir."/".preg_replace("/\.pdf$/","",basename($this->file)).".html";
-		$content = file_get_contents($file_output);
-		unlink($file_output);
-		return $content;
-	}
+	
 	/**
 	* generating html files using pdftohtml software.
 	* @return $this current object

@@ -7,7 +7,6 @@ class PdfInfoTest extends PHPUnit_Framework_TestCase
   {
     $file = dirname(__FILE__).'/source/test.pdf';
     $pdf = new Pdf($file);
-    // print_r($pdf->getInfo());
     $this->assertArrayHasKey('pages', $pdf->getInfo());
   }
   public function testAbstract()
@@ -15,8 +14,6 @@ class PdfInfoTest extends PHPUnit_Framework_TestCase
     $file = dirname(__FILE__).'/source/test.pdf';
     $pdf = new Pdf($file);
     $html = $pdf->html();
-    // echo count($html->find('body'));
-    // print_r($html);
     $this->assertArrayHasKey('pages', $pdf->getInfo());
   }
   public function testChangePage()
@@ -24,11 +21,11 @@ class PdfInfoTest extends PHPUnit_Framework_TestCase
     $file = dirname(__FILE__).'/source/test.pdf';
     $pdf = new Pdf($file);
     $html = $pdf->html();
-    // echo count($html->find('body'));
-    // print_r($html);
+
     $this->assertEquals(1, $html->getCurrentPage());
     $html->goToPage(1);
     $this->assertEquals(1, $html->getCurrentPage());
+    $this->assertEquals(1, $html->getTotalPages());
     $this->assertArrayHasKey('pages', $pdf->getInfo());
   }
 }

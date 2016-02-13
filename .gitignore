@@ -2,3 +2,4 @@
 /output
 /tests/phpunit_report
 /build
+.coveralls.yml
