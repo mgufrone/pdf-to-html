@@ -12,5 +12,5 @@ before_script:
  - composer install -vvv
 script:
  - phpunit -c phpunit.xml
- after_success:
-  - travis_retry php vendor/bin/coveralls
+after_success:
+ - travis_retry php vendor/bin/coveralls
