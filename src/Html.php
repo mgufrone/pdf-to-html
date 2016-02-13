@@ -1,7 +1,6 @@
 <?php namespace Gufy\PdfToHtml;
 
 use PHPHtmlParser\Dom;
-use Pelago\Emogrifier;
 use DOMDocument;
 use DOMXPath;
 use DOMNode;
