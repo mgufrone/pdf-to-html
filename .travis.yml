@@ -11,4 +11,4 @@ php:
 before_script:
  - composer install -vvv
 script:
- - phpunit
+ - phpunit -c phpunit.xml

@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/mgufrone/pdf-to-html.svg?branch=master)](https://travis-ci.org/mgufrone/pdf-to-html)
+[![Coverage Status](https://coveralls.io/repos/github/mgufrone/pdf-to-html/badge.svg?branch=master)](https://coveralls.io/github/mgufrone/pdf-to-html?branch=master)
 
 
 

@@ -14,7 +14,8 @@
         "illuminate/config": "~5"
     },
     "require-dev":{
-        "phpunit/phpunit":"~4"
+        "phpunit/phpunit":"~4",
+        "satooshi/php-coveralls": "^1.0"
     },
 
     "autoload": {
