@@ -1,8 +1,15 @@
 <?php
-use Gufy\PdfToHtml\Pdf;
+use Gufy\PdfToHtml\Pdf,
+ Gufy\PdfToHtml\Config;
 
 class PdfInfoTest extends PHPUnit_Framework_TestCase
 {
+  public function setUp(){
+    parent::setUp();
+
+    Config::set('pdfinfo.bin', '/usr/local/bin/pdfinfo');
+    Config::set('pdftohtml.bin', '/usr/local/bin/pdftohtml');
+  }
   public function testGetOptions()
   {
     $file = dirname(__FILE__).'/source/test.pdf';

@@ -14,8 +14,7 @@ class Pdf
   }
   public function getInfo()
   {
-    if($this->info == null)
-    $this->info($this->file);
+    $this->checkInfo();
     return $this->info;
   }
   protected function info()
@@ -37,15 +36,18 @@ class Pdf
   }
   public function html()
   {
-    if($this->info == null)
-    $this->info($this->file);
+    $this->checkInfo();
     return new Html($this->file);
   }
   public function getPages()
   {
-    if($this->info == null)
-    $this->info($this->file);
+    $this->checkInfo();
     return $this->info['pages'];
+  }
+
+  private function checkInfo(){
+    if($this->info == null)
+    $this->info();
   }
   public function bin()
   {

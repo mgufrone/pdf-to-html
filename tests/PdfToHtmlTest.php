@@ -1,13 +1,18 @@
 <?php
 
-use Gufy\PdfToHtml\Base as PdfToHtml;
+use Gufy\PdfToHtml\Base as PdfToHtml,
+ Gufy\PdfToHtml\Config;
 
 class PdfToHtmlTest extends \PHPUnit_Framework_TestCase
 {
 	public $bin;
 	public function setUp()
 	{
+		parent::setUp();
 		$this->bin = new PdfToHtml;
+
+		    Config::set('pdfinfo.bin', '/usr/local/bin/pdfinfo');
+		    Config::set('pdftohtml.bin', '/usr/local/bin/pdftohtml');
 	}
 	public function testOpen()
 	{
@@ -40,4 +45,8 @@ class PdfToHtmlTest extends \PHPUnit_Framework_TestCase
 		$this->assertTrue(count(scandir(__DIR__.'/results'))>=3);
 
 		$this->bin->clearOutputDirectory();
-	}}
+	}
+	public function getRawHtml(){
+
+	}
+}
