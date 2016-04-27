@@ -44,8 +44,11 @@ include 'vendor/autoload.php';
 // initiate
 $pdf = new Gufy\PdfToHtml\Pdf('file.pdf');
 
-// convert to html and return it as [Dom Object](https://github.com/paquettg/php-html-parser)
+// convert to html string
 $html = $pdf->html();
+
+// convert to html and return it as [Dom Object](https://github.com/paquettg/php-html-parser)
+$dom = $pdf->getDom();
 
 // check if your pdf has more than one pages
 $total_pages = $pdf->getPages();
