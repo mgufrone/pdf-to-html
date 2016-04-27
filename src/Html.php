@@ -59,6 +59,10 @@ class Html extends Dom
     $this->current_page = $page;
     return $this->load($this->contents[$page]);
   }
+
+  public function raw($page = 1){
+    return $this->contents[$page];
+  }
   public function getTotalPages()
   {
     return count($this->contents);

@@ -34,10 +34,16 @@ class Pdf
     $this->info = $info;
     return $this;
   }
-  public function html()
+  public function getDom()
   {
     $this->checkInfo();
     return new Html($this->file);
+  }
+
+  public function html($page = 1){
+    $dom = $this->getDom();
+
+    return $dom->raw($page);
   }
   public function getPages()
   {

@@ -20,14 +20,14 @@ class PdfInfoTest extends PHPUnit_Framework_TestCase
   {
     $file = dirname(__FILE__).'/source/test.pdf';
     $pdf = new Pdf($file);
-    $html = $pdf->html();
+    $html = $pdf->getDom();
     $this->assertArrayHasKey('pages', $pdf->getInfo());
   }
   public function testChangePage()
   {
     $file = dirname(__FILE__).'/source/test.pdf';
     $pdf = new Pdf($file);
-    $html = $pdf->html();
+    $html = $pdf->getDom();
 
     $this->assertEquals(1, $html->getCurrentPage());
     $html->goToPage(1);
