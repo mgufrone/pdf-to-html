@@ -47,6 +47,9 @@ $pdf = new Gufy\PdfToHtml\Pdf('file.pdf');
 // convert to html string
 $html = $pdf->html();
 
+// convert a specific page to html
+$page = $pdf->html(3);
+
 // convert to html and return it as [Dom Object](https://github.com/paquettg/php-html-parser)
 $dom = $pdf->getDom();
 
@@ -54,10 +57,10 @@ $dom = $pdf->getDom();
 $total_pages = $pdf->getPages();
 
 // Your pdf happen to have more than one pages and you want to go another page? Got it. use this command to change the current page to page 3
-$html->goToPage(3);
+$dom->goToPage(3);
 
 // and then you can do as you please with that dom, you can find any element you want
-$paragraphs = $html->find('body > p');
+$paragraphs = $dom->find('body > p');
 
 // change pdftohtml bin location
 \Gufy\PdfToHtml\Config::set('pdftohtml.bin', '/usr/local/bin/pdftohtml');
