@@ -47,7 +47,7 @@ $pdf = new Gufy\PdfToHtml\Pdf('file.pdf');
 // convert to html string
 $html = $pdf->html();
 
-// convert a specific page to html
+// convert a specific page to html string
 $page = $pdf->html(3);
 
 // convert to html and return it as [Dom Object](https://github.com/paquettg/php-html-parser)
