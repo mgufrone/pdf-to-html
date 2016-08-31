@@ -11,8 +11,8 @@ class PdfToHtmlTest extends \PHPUnit_Framework_TestCase
 		parent::setUp();
 		$this->bin = new PdfToHtml;
 
-		    Config::set('pdfinfo.bin', '/usr/local/bin/pdfinfo');
-		    Config::set('pdftohtml.bin', '/usr/local/bin/pdftohtml');
+		    Config::set('pdfinfo.bin', '/usr/bin/pdfinfo');
+		    Config::set('pdftohtml.bin', '/usr/bin/pdftohtml');
 	}
 	public function testOpen()
 	{

@@ -27,8 +27,8 @@ class PdfBaseTest extends PHPUnit_Framework_TestCase
 
   public function testConvertAsRaw(){
 
-    Config::set('pdfinfo.bin', '/usr/local/bin/pdfinfo');
-    Config::set('pdftohtml.bin', '/usr/local/bin/pdftohtml');
+    Config::set('pdfinfo.bin', '/usr/bin/pdfinfo');
+    Config::set('pdftohtml.bin', '/usr/bin/pdftohtml');
     $pdf = new Pdf(dirname(__FILE__).'/source/test.pdf');
     $html = $pdf->html();
   }

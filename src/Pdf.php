@@ -19,7 +19,7 @@ class Pdf
   }
   protected function info()
   {
-    $content = shell_exec($this->bin().' '.$this->file);
+    $content = shell_exec($this->bin()." '".$this->file."'");
     // print_r($info);
     $options = explode("\n", $content);
     $info = array();

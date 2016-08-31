@@ -49,7 +49,7 @@ class Base
 		$this->setOutputDirectory(dirname($pdfFile));
 		return $this;
 	}
-	
+
 	/**
 	* generating html files using pdftohtml software.
 	* @return $this current object
@@ -58,7 +58,7 @@ class Base
 	{
 		$output = $this->outputDir."/".preg_replace("/\.pdf$/","",basename($this->file)).".html";
 		$options = $this->generateOptions();
-		$command = $this->bin()." ".$options." ".$this->file." ".$output;
+		$command = $this->bin()." ".$options." '".$this->file."' '".$output."'";
 		$result = exec($command);
 		return $this;
 	}
