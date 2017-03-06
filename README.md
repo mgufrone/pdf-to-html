@@ -70,6 +70,20 @@ $paragraphs = $dom->find('body > p');
 ?>
 ```
 
+###Passing options to getDOM
+By default `getDom()` extracts all images and creates a html file per page. You can pass options when extracting html:
+
+```php
+<?php
+$pdfDom = $pdf->getDom(['ignoreImages' => true]);
+```
+###Available Options
+* singlePage, default: false
+* imageJpeg, default: false
+* ignoreImages, default: false
+* zoom, default: 1.5
+* noFrames, default: true
+
 ## Usage note for Windows Users
 For those who need this package in windows, there is a way. First download poppler-utils for windows here <http://blog.alivate.com.au/poppler-windows/>. And download the latest binary.
 

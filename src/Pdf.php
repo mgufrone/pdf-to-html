@@ -49,16 +49,16 @@ class Pdf
         return $this;
     }
 
-    public function getDom()
+    public function getDom($options = [])
     {
         $this->checkInfo();
 
-        return new Html($this->file);
+        return new Html($this->file, $options);
     }
 
-    public function html($page = 1)
+    public function html($page = 1, $options = [])
     {
-        $dom = $this->getDom();
+        $dom = $this->getDom($options);
 
         return $dom->raw($page);
     }
