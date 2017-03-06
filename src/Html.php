@@ -11,21 +11,29 @@ class Html extends Dom
 {
     protected $contents, $total_pages, $current_page, $pdf_file, $locked = false;
 
-    public function __construct($pdf_file)
+    protected $default_options = [
+        'singlePage' => true,
+        'noFrames'   => false,
+    ];
+
+    public function __construct($pdf_file, $options = [])
     {
-        $this->getContents($pdf_file);
+        $options = array_merge($this->default_options, $options);
+
+        $this->getContents($pdf_file, $options);
 
         return $this;
     }
 
-    private function getContents($pdf_file)
+    /**
+     * @param $pdf_file
+     * @param array $options
+     */
+    private function getContents($pdf_file, $options)
     {
         $this->locked = true;
         $info = new Pdf($pdf_file);
-        $pdf = new Base($pdf_file, [
-            'singlePage' => true,
-            'noFrames'   => false,
-        ]);
+        $pdf = new Base($pdf_file, $options);
         $pages = $info->getPages();
 
         $random_dir = uniqid();
