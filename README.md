@@ -70,14 +70,14 @@ $paragraphs = $dom->find('body > p');
 ?>
 ```
 
-###Passing options to getDOM
+### Passing options to getDOM
 By default `getDom()` extracts all images and creates a html file per page. You can pass options when extracting html:
 
 ```php
 <?php
 $pdfDom = $pdf->getDom(['ignoreImages' => true]);
 ```
-###Available Options
+### Available Options
 * singlePage, default: false
 * imageJpeg, default: false
 * ignoreImages, default: false
