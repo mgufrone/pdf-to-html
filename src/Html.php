@@ -50,7 +50,9 @@ class Html extends Dom
             $content = str_replace("Â", "", $content);
             if ($this->inlineCss()) {
                 $dom = new DOMDocument();
+                $internalErrors = libxml_use_internal_errors(true);
                 $dom->loadHTML($content);
+                libxml_use_internal_errors($internalErrors);
                 $xpath = new DOMXPath($dom);
                 foreach ($xpath->query('//comment()') as $comment) {
                     $comment->parentNode->removeChild($comment);
